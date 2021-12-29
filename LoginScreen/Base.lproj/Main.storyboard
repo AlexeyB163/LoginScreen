@@ -16,17 +16,17 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Aaj-fc-wbw"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Me1-fA-hKP"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GUm-8I-9Mh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-849" y="98"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LoginScreen" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="LoginScreen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,7 +37,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Log In"/>
                                 <connections>
-                                    <segue destination="KWF-ZC-zvc" kind="show" id="BGY-iD-FCE"/>
+                                    <segue destination="KWF-ZC-zvc" kind="presentation" id="Kea-64-agO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="imk-U4-MHf">
@@ -55,12 +55,18 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="forgotUserAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="mdd-3t-DXr"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="7hT-qv-Er6">
                                 <rect key="frame" x="258" y="482" width="116" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Forgot Password?"/>
+                                <connections>
+                                    <action selector="forgotPasswordAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="nOv-7W-wbW"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="x2w-jE-atE">
                                 <rect key="frame" x="40" y="280" width="334" height="98"/>
@@ -106,48 +112,56 @@
             </objects>
             <point key="canvasLocation" x="34.782608695652179" y="97.767857142857139"/>
         </scene>
-        <!--Log Out View Controller-->
+        <!--Welcome View Controller-->
         <scene sceneID="yT2-KK-hah">
             <objects>
-                <viewController id="KWF-ZC-zvc" customClass="LogOutViewController" customModule="LoginScreen" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="KWF-ZC-zvc" customClass="WelcomeViewController" customModule="LoginScreen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QVS-45-4ce">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome User" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yai-wm-qSY">
-                                <rect key="frame" x="128.5" y="158" width="157" height="30"/>
+                                <rect key="frame" x="128.5" y="70" width="157" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wGl-9T-7Mg">
-                                <rect key="frame" x="177" y="263" width="60" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="SAM-lH-c6Z"/>
-                                    <constraint firstAttribute="height" constant="60" id="rh1-rk-yZy"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lv-QM-Erh">
-                                <rect key="frame" x="168.5" y="428.5" width="77" height="39"/>
+                                <rect key="frame" x="168.5" y="268.5" width="77" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <segue destination="Mzv-YL-gOe" kind="unwind" unwindAction="unwindFor:" id="z4K-b8-yx2"/>
+                                </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wGl-9T-7Mg">
+                                <rect key="frame" x="167" y="131" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="ZJt-Yn-NG1"/>
+                                    <constraint firstAttribute="width" constant="80" id="aDJ-tw-qxo"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="APn-rV-BYM"/>
                         <color key="backgroundColor" red="1" green="0.69228425953836326" blue="0.063573374970403829" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="yai-wm-qSY" firstAttribute="top" secondItem="APn-rV-BYM" secondAttribute="top" constant="70" id="60I-6l-Dz5"/>
-                            <constraint firstItem="1lv-QM-Erh" firstAttribute="centerY" secondItem="QVS-45-4ce" secondAttribute="centerY" id="FZi-OY-PO5"/>
-                            <constraint firstItem="wGl-9T-7Mg" firstAttribute="top" secondItem="yai-wm-qSY" secondAttribute="bottom" constant="75" id="IUe-yk-Szb"/>
-                            <constraint firstItem="wGl-9T-7Mg" firstAttribute="centerX" secondItem="QVS-45-4ce" secondAttribute="centerX" id="Sz8-JT-nJE"/>
+                            <constraint firstItem="1lv-QM-Erh" firstAttribute="top" secondItem="wGl-9T-7Mg" secondAttribute="bottom" constant="57.5" id="JkF-EY-pmd"/>
                             <constraint firstItem="1lv-QM-Erh" firstAttribute="centerX" secondItem="QVS-45-4ce" secondAttribute="centerX" id="TUZ-mN-hQ1"/>
+                            <constraint firstItem="wGl-9T-7Mg" firstAttribute="top" secondItem="yai-wm-qSY" secondAttribute="bottom" constant="31" id="aiA-Yl-GzK"/>
                             <constraint firstItem="yai-wm-qSY" firstAttribute="centerX" secondItem="QVS-45-4ce" secondAttribute="centerX" id="qj3-gP-lrZ"/>
+                            <constraint firstItem="wGl-9T-7Mg" firstAttribute="centerX" secondItem="QVS-45-4ce" secondAttribute="centerX" id="s95-a0-Tus"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uUw-9p-o5q"/>
+                    <connections>
+                        <outlet property="imageUser" destination="wGl-9T-7Mg" id="Hyp-8b-ipS"/>
+                        <outlet property="welcomeUser" destination="yai-wm-qSY" id="ccz-D7-QKf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gBk-cO-0lI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Mzv-YL-gOe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="815.94202898550736" y="97.767857142857139"/>
         </scene>

@@ -13,7 +13,7 @@
 		CE2AE836277CBCD800BECDCD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2AE834277CBCD800BECDCD /* Main.storyboard */; };
 		CE2AE838277CBCDC00BECDCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE2AE837277CBCDC00BECDCD /* Assets.xcassets */; };
 		CE2AE83B277CBCDC00BECDCD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2AE839277CBCDC00BECDCD /* LaunchScreen.storyboard */; };
-		CE2AE843277CC52600BECDCD /* LogOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AE842277CC52600BECDCD /* LogOutViewController.swift */; };
+		CE2AE843277CC52600BECDCD /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AE842277CC52600BECDCD /* WelcomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		CE2AE837277CBCDC00BECDCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE2AE83A277CBCDC00BECDCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE2AE83C277CBCDC00BECDCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE2AE842277CC52600BECDCD /* LogOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutViewController.swift; sourceTree = "<group>"; };
+		CE2AE842277CC52600BECDCD /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +61,8 @@
 				CE2AE82E277CBCD800BECDCD /* AppDelegate.swift */,
 				CE2AE830277CBCD800BECDCD /* SceneDelegate.swift */,
 				CE2AE832277CBCD800BECDCD /* LoginViewController.swift */,
+				CE2AE842277CC52600BECDCD /* WelcomeViewController.swift */,
 				CE2AE834277CBCD800BECDCD /* Main.storyboard */,
-				CE2AE842277CC52600BECDCD /* LogOutViewController.swift */,
 				CE2AE837277CBCDC00BECDCD /* Assets.xcassets */,
 				CE2AE839277CBCDC00BECDCD /* LaunchScreen.storyboard */,
 				CE2AE83C277CBCDC00BECDCD /* Info.plist */,
@@ -143,7 +143,7 @@
 			files = (
 				CE2AE833277CBCD800BECDCD /* LoginViewController.swift in Sources */,
 				CE2AE82F277CBCD800BECDCD /* AppDelegate.swift in Sources */,
-				CE2AE843277CC52600BECDCD /* LogOutViewController.swift in Sources */,
+				CE2AE843277CC52600BECDCD /* WelcomeViewController.swift in Sources */,
 				CE2AE831277CBCD800BECDCD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
