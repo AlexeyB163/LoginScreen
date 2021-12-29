@@ -9,6 +9,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var userNameTF: UITextField!
+    @IBOutlet weak var passwordTF: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
