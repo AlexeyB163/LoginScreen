@@ -17,12 +17,6 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var userNameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if verificationDate() {
@@ -34,8 +28,11 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func forgotUserAction() {
+        alerForgotUser()
     }
+    
     @IBAction func forgotPasswordAction() {
+        alertForgotPassword()
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
@@ -58,7 +55,22 @@ class LoginViewController: UIViewController {
         alertController.addAction(alertAction)
         present(alertController, animated: true)
     }
+    
+    func alerForgotUser() {
+        let alertController = UIAlertController(title: "Oops! \u{1F615}", message: "Your name: \(dateUser.userName.rawValue)", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default)
+        alertController.addAction(alertAction)
         
+        present(alertController, animated: true)
+    }
+    
+    func alertForgotPassword() {
+        let alertController = UIAlertController(title: "Oops! \u{1F615}", message: "Your password: \(dateUser.password.rawValue)", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default)
+        alertController.addAction(alertAction)
+        
+        present(alertController, animated: true)
+    }
     
     private func verificationDate() -> Bool {
         let user = userNameTF.text == dateUser.userName.rawValue
