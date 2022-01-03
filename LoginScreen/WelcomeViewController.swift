@@ -17,7 +17,7 @@ class WelcomeViewController: UIViewController {
     
     var userName = ""
     
-    var greetingUser: String {
+    private var greetingUser: String {
         return "Welcome" + " " + userName + " " + "!"
     }
     
