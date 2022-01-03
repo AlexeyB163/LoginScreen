@@ -17,7 +17,14 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var userNameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        passwordTF.delegate = self
+        
+    }
+    
+        
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if verificationDate() {
             guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
@@ -26,6 +33,11 @@ class LoginViewController: UIViewController {
             alertDateAction()
         }
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+    }
+
     
     @IBAction func forgotUserAction() {
         alerForgotUser()
@@ -72,6 +84,12 @@ class LoginViewController: UIViewController {
         present(alertController, animated: true)
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        passwordTF.resignFirstResponder()
+        
+        return true
+    }
+    
     private func verificationDate() -> Bool {
         let user = userNameTF.text == dateUser.userName.rawValue
         let password = passwordTF.text == dateUser.password.rawValue
@@ -80,5 +98,9 @@ class LoginViewController: UIViewController {
     }
     
    
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    
 }
 
