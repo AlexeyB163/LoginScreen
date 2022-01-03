@@ -86,6 +86,14 @@ class LoginViewController: UIViewController {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         passwordTF.resignFirstResponder()
+        if verificationDate(){
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let nextVC = storyboard.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
+            nextVC.userName = userNameTF.text ?? ""
+            self.present(nextVC, animated: true, completion: nil)
+        } else {
+            alertDateAction()
+        }
         
         return true
     }
