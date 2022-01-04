@@ -25,36 +25,31 @@ class LoginViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
     }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if verificationDate() {
             guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
             welcomeVC.userName = userNameTF.text ?? ""
-        } else {
-            alertDateAction()
-        }
     }
     
     
     // MARK: - IBAction
+    @IBAction func logInAction() {
+        if verificationDate() {
+            
+        } else {
+            alertDateAction()
+        }
+        
+    }
     @IBAction func unwind(for segue: UIStoryboardSegue) {
-        guard let loginVC = segue.source as? WelcomeViewController else { return }
         userNameTF.text = ""
         passwordTF.text = ""
     }
     
-    @IBAction func forgotUserAction() {
-        alerForgotUser()
-    }
-    
-    @IBAction func forgotPasswordAction() {
-        alertForgotPassword()
-    }
-    
-
     // MARK: - Alerts
     func alertDateAction() {
         let alertController  = UIAlertController(
@@ -71,26 +66,26 @@ class LoginViewController: UIViewController {
         present(alertController, animated: true)
     }
     
-    func alerForgotUser() {
+    @IBAction func alertForgotAction(_ sender: UIButton) {
+        
+        var message = ""
+        switch sender.titleLabel?.text {
+        case "Forgot User name?":
+            message = "Your name: \(dateUser.userName.rawValue)"
+        
+        default:
+            message = "Your name: \(dateUser.password.rawValue)"
+        }
         let alertController = UIAlertController(
-            title: "Oops! \u{1F615}",
-            message: "Your name: \(dateUser.userName.rawValue)",
-            preferredStyle: .alert)
+                title: "Oops! \u{1F615}",
+                message: message,
+                preferredStyle: .alert)
         
         let alertAction = UIAlertAction(title: "OK", style: .default)
         alertController.addAction(alertAction)
         present(alertController, animated: true)
-    }
-    
-    func alertForgotPassword() {
-        let alertController = UIAlertController(
-            title: "Oops! \u{1F615}",
-            message: "Your password: \(dateUser.password.rawValue)",
-            preferredStyle: .alert)
         
-        let alertAction = UIAlertAction(title: "OK", style: .default)
-        alertController.addAction(alertAction)
-        present(alertController, animated: true)
+        
     }
     
     //MARK: - work with keyboard
@@ -99,18 +94,13 @@ class LoginViewController: UIViewController {
         switch textField {
         case userNameTF:
             passwordTF.becomeFirstResponder()
-        case passwordTF:
+        default:
             passwordTF.resignFirstResponder()
             if verificationDate() {
-                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                        let nextVC = storyboard.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
-                        nextVC.userName = userNameTF.text ?? ""
-                        self.present(nextVC, animated: true, completion: nil)
+                performSegue(withIdentifier: "goToWelcomeVC", sender: self)
                     } else {
                         alertDateAction()
                     }
-        default:
-            break
         }
         return true
     }

@@ -37,7 +37,8 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Log In"/>
                                 <connections>
-                                    <segue destination="KWF-ZC-zvc" kind="presentation" id="Kea-64-agO"/>
+                                    <action selector="logInAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="wKQ-4n-evn"/>
+                                    <segue destination="KWF-ZC-zvc" kind="presentation" identifier="goToWelcomeVC" id="Kea-64-agO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="imk-U4-MHf">
@@ -56,7 +57,7 @@
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <action selector="forgotUserAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="mdd-3t-DXr"/>
+                                    <action selector="alertForgotAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lKf-4T-5BO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="7hT-qv-Er6">
@@ -65,7 +66,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Forgot Password?"/>
                                 <connections>
-                                    <action selector="forgotPasswordAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="nOv-7W-wbW"/>
+                                    <action selector="alertForgotAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1LG-By-zG9"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="x2w-jE-atE">
