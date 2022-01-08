@@ -24,10 +24,7 @@ class LoginViewController: UIViewController {
         passwordTF.delegate = self
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        view.endEditing(true)
-    }
+    
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -38,72 +35,29 @@ class LoginViewController: UIViewController {
     
     // MARK: - IBAction
     @IBAction func logInAction() {
-        if verificationDate() {
-            
-        } else {
-            alertDateAction()
+        guard verificationDate() else {
+            showAlert(
+            title: "Invalid login or password",
+            message: "Please, enter correct login and password",
+            textField: passwordTF)
+            return
         }
-        
     }
+    
     @IBAction func unwind(for segue: UIStoryboardSegue) {
         userNameTF.text = ""
         passwordTF.text = ""
     }
     
-    // MARK: - Alerts
-    func alertDateAction() {
-        let alertController  = UIAlertController(
-            title: "Invalid login or password",
-            message: "Please, enter correct login and password",
-            preferredStyle: .alert)
-        
-        let alertAction = UIAlertAction(
-            title: "OK",
-            style: .default)
-            { _ in self.passwordTF.text = "" }
-        
-        alertController.addAction(alertAction)
-        present(alertController, animated: true)
-    }
-    
+
+
     @IBAction func alertForgotAction(_ sender: UIButton) {
-        
-        var message = ""
-        switch sender.titleLabel?.text {
-        case "Forgot User name?":
-            message = "Your name: \(dateUser.userName.rawValue)"
-        
-        default:
-            message = "Your name: \(dateUser.password.rawValue)"
-        }
-        let alertController = UIAlertController(
-                title: "Oops! \u{1F615}",
-                message: message,
-                preferredStyle: .alert)
-        
-        let alertAction = UIAlertAction(title: "OK", style: .default)
-        alertController.addAction(alertAction)
-        present(alertController, animated: true)
-        
-        
+        sender.tag == 0
+        ? showAlert(title: "Oops! \u{1F615}", message: "Your name: \(dateUser.userName.rawValue)")
+        : showAlert(title: "Oops! \u{1F615}", message: "Your name: \(dateUser.password.rawValue)")
     }
     
-    //MARK: - work with keyboard
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        switch textField {
-        case userNameTF:
-            passwordTF.becomeFirstResponder()
-        default:
-            passwordTF.resignFirstResponder()
-            if verificationDate() {
-                performSegue(withIdentifier: "goToWelcomeVC", sender: self)
-                    } else {
-                        alertDateAction()
-                    }
-        }
-        return true
-    }
     // MARK: - private methods
     private func verificationDate() -> Bool {
         let user = userNameTF.text == dateUser.userName.rawValue
@@ -112,8 +66,38 @@ class LoginViewController: UIViewController {
         return user && password
     }
 }
+// MARK: - Alerts
+
+extension LoginViewController {
+    
+    private func showAlert (title: String, message: String, textField: UITextField? = nil ) {
+        let alertcontroller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default) { _ in
+            textField?.text = ""
+            
+        }
+        alertcontroller.addAction(alertAction)
+        present(alertcontroller, animated: true)
+    }
+}
+//MARK: - work with keyboard
 
 extension LoginViewController: UITextFieldDelegate {
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if textField == userNameTF {
+            passwordTF.becomeFirstResponder()
+        } else {
+            logInAction()
+            performSegue(withIdentifier: "goToWelcomeVC", sender: self)
+        }
+        return true
+    }
 }
 
