@@ -15,6 +15,10 @@
 		CE2AE83B277CBCDC00BECDCD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2AE839277CBCDC00BECDCD /* LaunchScreen.storyboard */; };
 		CE2AE843277CC52600BECDCD /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AE842277CC52600BECDCD /* WelcomeViewController.swift */; };
 		CE7D4362278B4FA1003FF765 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D4361278B4FA1003FF765 /* Person.swift */; };
+		CE7D4364278B78A3003FF765 /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D4363278B78A3003FF765 /* AboutMeViewController.swift */; };
+		CE7D4366278B7962003FF765 /* MyFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D4365278B7962003FF765 /* MyFamilyViewController.swift */; };
+		CE7D4368278B79E3003FF765 /* MyHobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D4367278B79E3003FF765 /* MyHobbyViewController.swift */; };
+		CE7D436A278B7A21003FF765 /* MyWorkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D4369278B7A21003FF765 /* MyWorkViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		CE2AE83C277CBCDC00BECDCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE2AE842277CC52600BECDCD /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		CE7D4361278B4FA1003FF765 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		CE7D4363278B78A3003FF765 /* AboutMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeViewController.swift; sourceTree = "<group>"; };
+		CE7D4365278B7962003FF765 /* MyFamilyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFamilyViewController.swift; sourceTree = "<group>"; };
+		CE7D4367278B79E3003FF765 /* MyHobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHobbyViewController.swift; sourceTree = "<group>"; };
+		CE7D4369278B7A21003FF765 /* MyWorkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWorkViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +92,10 @@
 			children = (
 				CE2AE832277CBCD800BECDCD /* LoginViewController.swift */,
 				CE2AE842277CC52600BECDCD /* WelcomeViewController.swift */,
+				CE7D4363278B78A3003FF765 /* AboutMeViewController.swift */,
+				CE7D4365278B7962003FF765 /* MyFamilyViewController.swift */,
+				CE7D4367278B79E3003FF765 /* MyHobbyViewController.swift */,
+				CE7D4369278B7A21003FF765 /* MyWorkViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -188,7 +200,11 @@
 				CE2AE833277CBCD800BECDCD /* LoginViewController.swift in Sources */,
 				CE2AE82F277CBCD800BECDCD /* AppDelegate.swift in Sources */,
 				CE2AE843277CC52600BECDCD /* WelcomeViewController.swift in Sources */,
+				CE7D4364278B78A3003FF765 /* AboutMeViewController.swift in Sources */,
 				CE2AE831277CBCD800BECDCD /* SceneDelegate.swift in Sources */,
+				CE7D436A278B7A21003FF765 /* MyWorkViewController.swift in Sources */,
+				CE7D4366278B7962003FF765 /* MyFamilyViewController.swift in Sources */,
+				CE7D4368278B79E3003FF765 /* MyHobbyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
