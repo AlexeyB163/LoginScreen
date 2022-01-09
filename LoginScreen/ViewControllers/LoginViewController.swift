@@ -7,14 +7,11 @@
 
 import UIKit
 
-enum dateUser: String {
-    case userName = "User"
-    case password = "1234"
-}
-
 
 class LoginViewController: UIViewController {
 
+    
+    
     @IBOutlet weak var userNameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     
