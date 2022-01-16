@@ -8,11 +8,6 @@
 import Foundation
 import UIKit
 
-enum dateUser: String {
-    case userName = "User"
-    case password = "1234"
-}
-
 struct Person {
     let name: String
     let surname: String
@@ -29,7 +24,10 @@ struct Hobby {
 struct Family {
     let wife: String
     let wifeImage: UIImage
-    let children: [String : UIImage]
+    let childrenOne: String
+    let childrenOneImage: UIImage
+    let childrenTwo: String
+    let childrenTwoImage: UIImage
     let pets: String
     let petsImage: UIImage
     let familyImage: UIImage

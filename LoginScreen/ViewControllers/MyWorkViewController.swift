@@ -13,9 +13,22 @@ class MyWorkViewController: UIViewController {
     
     @IBOutlet weak var workImage: UIImageView!
     
+    private var workDiscription = ""
+    private var workIm = UIImage()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        workDiscriptLabel.text = workDiscription
+        workImage.image = workIm
     }
 
+}
+
+extension MyWorkViewController {
+    func setDataInMyWorkVC() {
+        workDiscription = "магазин канцтоваров - КанцМир"
+        workIm = UIImage(named: "work")!
+        
+    }
 }
