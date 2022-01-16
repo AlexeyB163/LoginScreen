@@ -19,7 +19,7 @@ class LoginViewController: UIViewController {
                        childrenTwo: "Артем", childrenTwoImage: UIImage(),
                        pets: "Шкода", petsImage: UIImage(),
                        familyImage: UIImage()),
-        work: Work(description: "Магазин канцтоваров КанцМир",
+        work: Work(description: "",
                    workImage: UIImage()
                   )
         )
@@ -47,7 +47,9 @@ class LoginViewController: UIViewController {
         for viewControllers in tabBarController.viewControllers! {
             if let welcomeVC = viewControllers as? WelcomeViewController {
                 welcomeVC.setDataForWelcomeVC(name: user.person.name, surname: user.person.surname)
+                welcomeVC.userFirstName = userNameTF.text ?? ""
             } else if let navigationVC = viewControllers as? UINavigationController {
+                // print(navigationVC.viewControllers.count)
                 let familyVC = navigationVC.topViewController as! MyFamilyViewController
                 familyVC.setDataInFamilyVC(userFamily: [user.person.family])
 
@@ -59,9 +61,10 @@ class LoginViewController: UIViewController {
                 }
                 }
             }
+         
         }
         
-            //welcomeVC.userName = userNameTF.text ?? ""
+            
     
     
     // MARK: - IBAction

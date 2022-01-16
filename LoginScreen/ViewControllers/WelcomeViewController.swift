@@ -15,7 +15,7 @@ class WelcomeViewController: UIViewController {
     
     @IBOutlet weak var imageUser: UIImageView!
     
-    private var userFirstName = ""
+    var userFirstName = ""
     private var userSurName = ""
     private var userIm = UIImage()
     
