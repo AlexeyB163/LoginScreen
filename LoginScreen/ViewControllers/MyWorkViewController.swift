@@ -9,26 +9,26 @@ import UIKit
 
 class MyWorkViewController: UIViewController {
 
+    //MARK: - Outlets
     @IBOutlet weak var workDiscriptLabel: UILabel!
-    
     @IBOutlet weak var workImage: UIImageView!
     
-    private var workDiscription = ""
-    private var workIm = UIImage()
+    // MARK: - Property
+    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        workDiscriptLabel.text = workDiscription
-        workImage.image = workIm
+        setDataInMyWorkVC()
+        workImage.layer.cornerRadius = 10
     }
 
 }
-
+    // MARK: - Extension
 extension MyWorkViewController {
     func setDataInMyWorkVC() {
-        workDiscription = "магазин канцтоваров - КанцМир"
-        workIm = UIImage(named: "work")!
+        workDiscriptLabel.text = "магазин канцтоваров - КанцМир"
+        workImage.image = UIImage(named: "work")!
         
     }
 }

@@ -9,27 +9,33 @@ import UIKit
 
 class MyHobbyViewController: UIViewController {
 
+    // MARK: - Outlets
     @IBOutlet weak var hobbyDisriptLabel: UILabel!
     @IBOutlet weak var hobbyImage: UIImageView!
     
-    var hobbyDiscription = ""
-    var hobbyIm = UIImage()
+    // MARK: - Property
+    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        hobbyDisriptLabel.text = hobbyDiscription
-        hobbyImage.image = hobbyIm
+        setDataInMyHobbyVC()
+        hobbyImage.layer.cornerRadius = 10
 
-        
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let workVC = segue.destination as? MyWorkViewController else { return }
+        workVC.user = self.user
     }
 
 }
-
+    // MARK: - Extension
 extension MyHobbyViewController {
     func setDataInMyHobbyVC() {
-        hobbyDiscription = "Люблю мотоциклы 🏍 -  hard enduro 🤘"
-        hobbyIm = UIImage(named: "enduro")!
+        hobbyDisriptLabel.text = "Люблю мотоциклы 🏍 -  hard enduro 🤘"
+        hobbyImage.image = UIImage(named: "\(user.person.hobby.hobbyImage)")
         
     }
 }

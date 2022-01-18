@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import UIKit
+
 
 struct Person {
     let name: String
@@ -18,22 +18,23 @@ struct Person {
 
 struct Hobby {
     let description: String
-    let hobbyImage: UIImage
+    let hobbyImage: String
 }
 
 struct Family {
+    let iImage: String
     let wife: String
-    let wifeImage: UIImage
+    let wifeImage: String
     let childrenOne: String
-    let childrenOneImage: UIImage
+    let childrenOneImage: String
     let childrenTwo: String
-    let childrenTwoImage: UIImage
+    let childrenTwoImage: String
     let pets: String
-    let petsImage: UIImage
-    let familyImage: UIImage
+    let petsImage: String
+    let familyImage: String
 }
 
 struct Work {
     let description: String
-    let workImage: UIImage
+    let workImage: String
 }

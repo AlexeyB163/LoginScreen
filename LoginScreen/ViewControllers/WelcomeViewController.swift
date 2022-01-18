@@ -15,26 +15,31 @@ class WelcomeViewController: UIViewController {
     
     @IBOutlet weak var imageUser: UIImageView!
     
-    var userFirstName = ""
-    private var userSurName = ""
+    var user: User!
+    
+    private var fullName: String {
+        user.person.name + " " + user.person.surname
+    }
+    
     private var userIm = UIImage()
     
     private var greetingUser: String {
-        return "Welcome" + " " + userFirstName + " " + userSurName + " " + "!"
+        return "Welcome" + " " + fullName + "!"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        welcomeUser.text = greetingUser
+        
+        setDataForWelcomeVC()
         imageUser.image = userIm
         imageUser.layer.cornerRadius = 10
     }
 }
 
 extension WelcomeViewController {
-    func setDataForWelcomeVC (name: String, surname: String) {
-        userFirstName = name
-        userSurName = surname
-        userIm = UIImage(named: "I")!
+    
+    func setDataForWelcomeVC () {
+        welcomeUser.text = greetingUser
+        userIm = UIImage(named: "\(user.person.family.iImage)")!
     }
 }

@@ -10,25 +10,25 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    let user = User(person: Person(
-        name: "Алексей",
-        surname: "Бычинин",
-        hobby: Hobby(description: "", hobbyImage: UIImage()),
-        family: Family(wife: "Таня", wifeImage: UIImage(),
-                       childrenOne: "Егор", childrenOneImage: UIImage(),
-                       childrenTwo: "Артем", childrenTwoImage: UIImage(),
-                       pets: "Шкода", petsImage: UIImage(),
-                       familyImage: UIImage()),
-        work: Work(description: "",
-                   workImage: UIImage()
-                  )
-        )
-    )
-    
-    
-    
+    //MARK: - outlets
     @IBOutlet weak var userNameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
+    
+    //MARK: - private property
+    private let user = User(person: Person(
+            name: "Алексей",
+            surname: "Бычинин",
+            hobby: Hobby(description: "", hobbyImage: "enduro"),
+            family: Family(iImage: "I", wife: "Таня", wifeImage: "tany",
+                           childrenOne: "Егор", childrenOneImage: "egor",
+                           childrenTwo: "Артем", childrenTwoImage: "tema",
+                           pets: "Шкода", petsImage: "cat",
+                           familyImage: "family"),
+            work: Work(description: "",
+                       workImage: "work"
+                      )
+                )
+        )
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,28 +41,19 @@ class LoginViewController: UIViewController {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
+        guard let tabBarController = segue.destination as? UITabBarController else { return }
+        guard let viewControllers = tabBarController.viewControllers else { return }
         
-        let tabBarController = segue.destination as! UITabBarController
-        
-        for viewControllers in tabBarController.viewControllers! {
-            if let welcomeVC = viewControllers as? WelcomeViewController {
-                welcomeVC.setDataForWelcomeVC(name: user.person.name, surname: user.person.surname)
-                welcomeVC.userFirstName = userNameTF.text ?? ""
-            } else if let navigationVC = viewControllers as? UINavigationController {
-                // print(navigationVC.viewControllers.count)
+        viewControllers.forEach {
+            if let welcomeVC = $0 as? WelcomeViewController {
+                welcomeVC.user = user
+            } else if let navigationVC = $0 as? UINavigationController {
                 let familyVC = navigationVC.topViewController as! MyFamilyViewController
-                familyVC.setDataInFamilyVC(userFamily: [user.person.family])
-
-                if let hobbyVC = storyboard?.instantiateViewController(withIdentifier: "hobbyVC") as? MyHobbyViewController {
-                    hobbyVC.setDataInMyHobbyVC()
-                }
-                if let workVC = storyboard?.instantiateViewController(withIdentifier: "workVC") as? MyWorkViewController {
-                    workVC.setDataInMyWorkVC()
-                }
-                }
+                familyVC.user = user
             }
-         
         }
+    }
+    
         
             
     
